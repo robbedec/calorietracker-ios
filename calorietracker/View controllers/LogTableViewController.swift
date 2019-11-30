@@ -10,7 +10,7 @@ import UIKit
 
 class LogTableViewController: UITableViewController {
 
-    var foodEntries: [FoodEntry]!
+    var foodEntries: FoodEntryArrayWrapper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class LogTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return foodEntries.count
+            return foodEntries.array.count
         } else {
             return 0
         }
@@ -45,7 +45,7 @@ class LogTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
         
         // Configure the cell...
-        let foodEntry = foodEntries[indexPath.row]
+        let foodEntry = foodEntries.array[indexPath.row]
         
         cell.textLabel?.text = "\(foodEntry.name)"
         cell.detailTextLabel?.text = "\(foodEntry.amountCal) calories"
@@ -54,7 +54,7 @@ class LogTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let foodEntry = foodEntries[indexPath.row]
+        let foodEntry = foodEntries.array[indexPath.row]
         
         guard foodEntry.fromAPI else {
             // Show an alert if the user clicks a manually added entry
@@ -85,7 +85,7 @@ class LogTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            foodEntries.remove(at: indexPath.row)
+            foodEntries.array.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

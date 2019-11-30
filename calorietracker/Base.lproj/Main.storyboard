@@ -106,7 +106,9 @@
                             <outlet property="delegate" destination="nwX-9G-eY0" id="Nst-4o-cc4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="2Gp-3C-teB"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="2Gp-3C-teB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Za4-aG-SHP"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcq-8W-8LP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,7 +153,7 @@
         <scene sceneID="b42-T5-c6O">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZVD-kl-f3H" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" badgeValue="5" systemItem="bookmarks" id="tpI-Lr-NdP"/>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="tpI-Lr-NdP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vWd-PG-RqV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
