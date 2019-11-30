@@ -60,6 +60,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Overview" id="UcC-CK-wje"/>
                     <connections>
+                        <outlet property="progressBar" destination="05n-5W-A5V" id="yla-GA-Ha5"/>
                         <segue destination="nwX-9G-eY0" kind="show" identifier="SegueLog" id="XFq-YU-MTi"/>
                     </connections>
                 </viewController>
@@ -67,7 +68,7 @@
             </objects>
             <point key="canvasLocation" x="1952.1739130434785" y="138.61607142857142"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Todays log-->
         <scene sceneID="626-e6-ZYP">
             <objects>
                 <tableViewController id="nwX-9G-eY0" customClass="LogTableViewController" customModule="calorietracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -106,13 +107,129 @@
                             <outlet property="delegate" destination="nwX-9G-eY0" id="Nst-4o-cc4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="2Gp-3C-teB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Za4-aG-SHP"/>
+                    <navigationItem key="navigationItem" title="Todays log" id="2Gp-3C-teB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Za4-aG-SHP">
+                            <connections>
+                                <segue destination="mUR-40-vhK" kind="presentation" identifier="SegueManualAdd" id="sKO-Ri-1oh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcq-8W-8LP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3104" y="139"/>
+        </scene>
+        <!--Manual Add Table View Controller-->
+        <scene sceneID="gYD-o9-ll0">
+            <objects>
+                <tableViewController id="wRz-Ty-Xae" customClass="ManualAddTableViewController" customModule="calorietracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ubj-fo-ucs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Entry name" id="BGw-No-oEZ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xau-nK-PkL">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xau-nK-PkL" id="I66-tF-0gH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJb-g4-6ID">
+                                                    <rect key="frame" x="10" y="7" width="394" height="29.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="wRz-Ty-Xae" eventType="editingChanged" id="d7C-IM-8Gd"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CJb-g4-6ID" firstAttribute="top" secondItem="I66-tF-0gH" secondAttribute="top" constant="7" id="MRU-ue-s79"/>
+                                                <constraint firstAttribute="trailing" secondItem="CJb-g4-6ID" secondAttribute="trailing" constant="10" id="hOo-lz-lGF"/>
+                                                <constraint firstAttribute="bottom" secondItem="CJb-g4-6ID" secondAttribute="bottom" constant="7" id="ne0-wm-tZD"/>
+                                                <constraint firstItem="CJb-g4-6ID" firstAttribute="leading" secondItem="I66-tF-0gH" secondAttribute="leading" constant="10" id="ui4-Wu-fnr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Amount of calories" id="a8X-IL-L9h">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="P8T-OH-bNU">
+                                        <rect key="frame" x="0.0" y="155.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P8T-OH-bNU" id="idY-xK-piN">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xCH-9k-brP">
+                                                    <rect key="frame" x="10" y="7" width="394" height="29.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="wRz-Ty-Xae" eventType="editingChanged" id="XWb-4m-a0w"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xCH-9k-brP" firstAttribute="leading" secondItem="idY-xK-piN" secondAttribute="leading" constant="10" id="HYe-sw-J0n"/>
+                                                <constraint firstAttribute="bottom" secondItem="xCH-9k-brP" secondAttribute="bottom" constant="7" id="Xl4-wW-eXj"/>
+                                                <constraint firstItem="xCH-9k-brP" firstAttribute="top" secondItem="idY-xK-piN" secondAttribute="top" constant="7" id="gPE-gs-kGb"/>
+                                                <constraint firstAttribute="trailing" secondItem="xCH-9k-brP" secondAttribute="trailing" constant="10" id="rph-uK-aOo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="wRz-Ty-Xae" id="Ah5-RA-NQd"/>
+                            <outlet property="delegate" destination="wRz-Ty-Xae" id="BPu-Lf-Ayh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="E21-5T-yks">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="NaY-9K-VIE">
+                            <connections>
+                                <segue destination="lp6-iA-tz3" kind="unwind" identifier="SegueManualCancel" unwindAction="unwindToLogTableViewWithSegue:" id="W6F-ff-VRt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="maI-I4-Tip">
+                            <connections>
+                                <segue destination="lp6-iA-tz3" kind="unwind" identifier="SegueManualSave" unwindAction="unwindToLogTableViewWithSegue:" id="Tu3-qa-hbz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="amountTextField" destination="xCH-9k-brP" id="bq1-nm-hw0"/>
+                        <outlet property="nameTextField" destination="CJb-g4-6ID" id="n6v-9N-WWi"/>
+                        <outlet property="saveButton" destination="maI-I4-Tip" id="AzT-Fg-7le"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dKp-ME-pNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lp6-iA-tz3" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5050.7246376811599" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LPe-5g-fVg">
+            <objects>
+                <navigationController id="mUR-40-vhK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KpL-B7-vLm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wRz-Ty-Xae" kind="relationship" relationship="rootViewController" id="PqN-BY-OgA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zDh-a5-pT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4103" y="139"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="LsM-Im-VlX">

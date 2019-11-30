@@ -108,14 +108,26 @@ class LogTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+       /* if segue.identifier == "SegueManualAdd" {
+            let tableController = segue.destination as! ManualAddTableViewController
+            tableController.foodEntries = self.foodEntries
+        }*/
     }
-    */
-
+    
+    @IBAction func unwindToLogTableView(segue: UIStoryboardSegue) {
+        guard segue.identifier == "SegueManualSave",
+            let sourceViewController = segue.source as? ManualAddTableViewController,
+            let newEntry = sourceViewController.foodEntry else { return }
+        
+        let newIndexPath = IndexPath(row: foodEntries.array.count, section: 0)
+        foodEntries.array.append(newEntry)
+        tableView.insertRows(at: [newIndexPath], with: .automatic)
+    }
 }

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import UICircularProgressRing
 
 class OverviewViewController: UIViewController {
 
+    @IBOutlet var progressBar: UICircularProgressRing!
+    
     var foodEntries = FoodEntryArrayWrapper(array: [
         FoodEntry(name: "Big mac", amountCal: 500),
         FoodEntry(name: "Banaan", amountCal: 90),
