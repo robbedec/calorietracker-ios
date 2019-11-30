@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--Overview-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="OverviewViewController" customModule="calorietracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,7 +26,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="gl0-M3-YeO" kind="show" id="Kql-Fy-d3S"/>
+                                    <action selector="logButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I8w-OR-cOZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -39,7 +39,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="UcC-CK-wje"/>
+                    <navigationItem key="navigationItem" title="Overview" id="UcC-CK-wje"/>
+                    <connections>
+                        <segue destination="gl0-M3-YeO" kind="show" identifier="SegueLog" id="87t-P7-Iwa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,7 +73,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Todays log" id="aN8-y6-m4u">
                         <barButtonItem key="backBarButtonItem" title="back" id="cSj-i5-kSe"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="rJd-i8-V6Y"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Vm-AW-T55" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -17,5 +17,9 @@ class OverviewViewController: UIViewController {
         
 
     }
+    
+    @IBAction func logButtonClicked(_ sender: Any) {
+        performSegue(withIdentifier: "SegueLog", sender: nil)
+    }
 }
 
