@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		037BDD042392CE9B00367B36 /* FoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037BDD032392CE9B00367B36 /* FoodEntry.swift */; };
+		037BDD062392CFA100367B36 /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037BDD052392CFA100367B36 /* LogTableViewController.swift */; };
 		03EBBE06239265ED0030FA68 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EBBE05239265ED0030FA68 /* SearchViewController.swift */; };
 		03ED0E8B234A042F008FB1BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED0E8A234A042F008FB1BA /* AppDelegate.swift */; };
 		03ED0E8D234A042F008FB1BA /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED0E8C234A042F008FB1BA /* OverviewViewController.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		037BDD032392CE9B00367B36 /* FoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntry.swift; sourceTree = "<group>"; };
+		037BDD052392CFA100367B36 /* LogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
 		03EBBE05239265ED0030FA68 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		03ED0E87234A042F008FB1BA /* calorietracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calorietracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03ED0E8A234A042F008FB1BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,11 +85,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		037BDD072392D08B00367B36 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				037BDD032392CE9B00367B36 /* FoodEntry.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		03EBBE04239265720030FA68 /* View controllers */ = {
 			isa = PBXGroup;
 			children = (
 				03ED0E8C234A042F008FB1BA /* OverviewViewController.swift */,
 				03EBBE05239265ED0030FA68 /* SearchViewController.swift */,
+				037BDD052392CFA100367B36 /* LogTableViewController.swift */,
 			);
 			path = "View controllers";
 			sourceTree = "<group>";
@@ -95,13 +108,6 @@
 			children = (
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		03EBBE082392669E0030FA68 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		03EBBE09239266B30030FA68 /* Other controllers */ = {
@@ -136,8 +142,8 @@
 		03ED0E89234A042F008FB1BA /* calorietracker */ = {
 			isa = PBXGroup;
 			children = (
+				037BDD072392D08B00367B36 /* Models */,
 				03EBBE09239266B30030FA68 /* Other controllers */,
-				03EBBE082392669E0030FA68 /* Model */,
 				03EBBE07239266960030FA68 /* Views */,
 				03EBBE04239265720030FA68 /* View controllers */,
 				03ED0E8A234A042F008FB1BA /* AppDelegate.swift */,
@@ -173,7 +179,6 @@
 				2D634DBD1AEAE56CEA2B38D5 /* Pods-calorietracker.debug.xcconfig */,
 				DAA6FE18882CCC5DA3B51173 /* Pods-calorietracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -360,7 +365,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				037BDD042392CE9B00367B36 /* FoodEntry.swift in Sources */,
 				03EBBE06239265ED0030FA68 /* SearchViewController.swift in Sources */,
+				037BDD062392CFA100367B36 /* LogTableViewController.swift in Sources */,
 				03ED0E8D234A042F008FB1BA /* OverviewViewController.swift in Sources */,
 				03ED0E8B234A042F008FB1BA /* AppDelegate.swift in Sources */,
 			);
