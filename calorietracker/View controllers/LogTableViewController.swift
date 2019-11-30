@@ -10,11 +10,7 @@ import UIKit
 
 class LogTableViewController: UITableViewController {
 
-    var foodEntries: [FoodEntry] = [
-        FoodEntry(name: "Big mac", amountCal: 500),
-        FoodEntry(name: "Banaan", amountCal: 90),
-        FoodEntry(name: "Cola", amountCal: 140)
-    ]
+    var foodEntries: [FoodEntry]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
