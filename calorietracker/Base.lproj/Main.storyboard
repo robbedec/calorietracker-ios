@@ -93,6 +93,52 @@
             </objects>
             <point key="canvasLocation" x="1952.1739130434785" y="138.61607142857142"/>
         </scene>
+        <!--Browse entries-->
+        <scene sceneID="RXw-N7-uOH">
+            <objects>
+                <tableViewController id="QSK-fQ-Mlq" customClass="SearchTableViewController" customModule="calorietracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xkv-2L-hVw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Lp-GQ-mbN">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Lp-GQ-mbN" id="Pha-Jd-JZs">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QSK-fQ-Mlq" id="Fb8-kd-Fgh"/>
+                            <outlet property="delegate" destination="QSK-fQ-Mlq" id="Be9-6f-X7l"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Browse entries" id="5un-jR-QHh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9cn-ak-g21" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1952" y="929"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ky0-iQ-zsW">
+            <objects>
+                <navigationController id="e6m-al-OM4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="tag-m4-t2I"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Ah-ib-4jc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="QSK-fQ-Mlq" kind="relationship" relationship="rootViewController" id="BMR-77-DmH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xes-CL-ViH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042" y="929"/>
+        </scene>
         <!--Todays log-->
         <scene sceneID="626-e6-ZYP">
             <objects>
@@ -256,22 +302,6 @@
             </objects>
             <point key="canvasLocation" x="4103" y="139"/>
         </scene>
-        <!--Search View Controller-->
-        <scene sceneID="LsM-Im-VlX">
-            <objects>
-                <viewController id="PBZ-Bi-dlA" customClass="SearchViewController" customModule="calorietracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Gk7-Dr-KZc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.51183182592917897" blue="0.17809372569939019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="UMU-aB-mbm"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="mMp-Qq-qvK"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8aC-gf-aN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1042" y="881"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZgM-5d-3bT">
             <objects>
@@ -284,7 +314,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="ZVD-kl-f3H" kind="relationship" relationship="viewControllers" id="qAb-l7-ZYq"/>
-                        <segue destination="PBZ-Bi-dlA" kind="relationship" relationship="viewControllers" id="d0r-7O-3TC"/>
+                        <segue destination="e6m-al-OM4" kind="relationship" relationship="viewControllers" id="uMb-sK-sKI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50c-GO-h9z" userLabel="First Responder" sceneMemberID="firstResponder"/>
