@@ -11,6 +11,7 @@
 		037BDD062392CFA100367B36 /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037BDD052392CFA100367B36 /* LogTableViewController.swift */; };
 		037BDD092392EADB00367B36 /* FoodEntryArrayWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037BDD082392EADB00367B36 /* FoodEntryArrayWrapper.swift */; };
 		037BDD0B2392F64400367B36 /* ManualAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037BDD0A2392F64400367B36 /* ManualAddTableViewController.swift */; };
+		03EB76152394046B00D364FC /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EB76142394046B00D364FC /* NetworkController.swift */; };
 		03EBBE06239265ED0030FA68 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EBBE05239265ED0030FA68 /* SearchViewController.swift */; };
 		03ED0E8B234A042F008FB1BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED0E8A234A042F008FB1BA /* AppDelegate.swift */; };
 		03ED0E8D234A042F008FB1BA /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED0E8C234A042F008FB1BA /* OverviewViewController.swift */; };
@@ -44,6 +45,7 @@
 		037BDD052392CFA100367B36 /* LogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
 		037BDD082392EADB00367B36 /* FoodEntryArrayWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntryArrayWrapper.swift; sourceTree = "<group>"; };
 		037BDD0A2392F64400367B36 /* ManualAddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualAddTableViewController.swift; sourceTree = "<group>"; };
+		03EB76142394046B00D364FC /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkController.swift; path = "calorietracker/View controllers/NetworkController.swift"; sourceTree = SOURCE_ROOT; };
 		03EBBE05239265ED0030FA68 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		03ED0E87234A042F008FB1BA /* calorietracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calorietracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03ED0E8A234A042F008FB1BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		03EBBE09239266B30030FA68 /* Other controllers */ = {
 			isa = PBXGroup;
 			children = (
+				03EB76142394046B00D364FC /* NetworkController.swift */,
 			);
 			path = "Other controllers";
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EB76152394046B00D364FC /* NetworkController.swift in Sources */,
 				037BDD042392CE9B00367B36 /* FoodEntry.swift in Sources */,
 				03EBBE06239265ED0030FA68 /* SearchViewController.swift in Sources */,
 				037BDD062392CFA100367B36 /* LogTableViewController.swift in Sources */,

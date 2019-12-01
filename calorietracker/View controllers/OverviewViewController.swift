@@ -23,8 +23,7 @@ class OverviewViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        tabBarController?.tabBar.items?[0].badgeValue = String(foodEntries.array.count)
-        //progressBar.value = calculatePercent()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
