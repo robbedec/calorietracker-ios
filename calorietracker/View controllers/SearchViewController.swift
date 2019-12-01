@@ -14,6 +14,13 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        NetworkController.singleton.fetchSearchResults(with: "cola") { results in
+            guard let foodEntries = results else { return }
+            for entry in foodEntries {
+                print(entry.name)
+                print(entry.amountCal)
+            }
+        }
     }
     
 
