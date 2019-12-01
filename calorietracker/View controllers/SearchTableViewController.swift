@@ -10,6 +10,8 @@ import UIKit
 
 class SearchTableViewController: UITableViewController {
 
+    var items: [FoodEntry] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,6 +21,12 @@ class SearchTableViewController: UITableViewController {
         
         NetworkController.singleton.fetchSearchResults(with: "cola") { results in
             guard let foodEntries = results else { return }
+            self.items = foodEntries
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
             for entry in foodEntries {
                 print(entry.name)
                 print(entry.amountCal)
@@ -49,23 +57,31 @@ class SearchTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if section == 0 {
+            return items.count
+        } else {
+            return 0
+        }
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath)
+        
         // Configure the cell...
-
+        let foodEntry = items[indexPath.row]
+        
+        cell.textLabel?.text = "\(foodEntry.name)"
+        cell.detailTextLabel?.text = "\(foodEntry.amountCal) calories"
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
