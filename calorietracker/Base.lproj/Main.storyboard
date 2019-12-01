@@ -29,42 +29,67 @@
                                     <action selector="logButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I8w-OR-cOZ"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05n-5W-A5V" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
-                                <rect key="frame" x="10" y="138" width="394" height="205"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="minValue">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                        <real key="value" value="100"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fJd-nh-rXo">
+                                <rect key="frame" x="10" y="118" width="394" height="325"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05n-5W-A5V" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="284.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minValue">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                                <real key="value" value="100"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvI-gM-ziE">
+                                        <rect key="frame" x="0.0" y="304.5" width="394" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="05n-5W-A5V" firstAttribute="leading" secondItem="zlj-N2-y7f" secondAttribute="leading" id="8Ph-RT-8Oe"/>
+                                    <constraint firstItem="05n-5W-A5V" firstAttribute="trailing" secondItem="zlj-N2-y7f" secondAttribute="trailing" id="F67-zl-Q4m"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="zlj-N2-y7f"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="y50-L4-dBF" appends="YES" id="3j8-Bt-quK"/>
+                                </connections>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2Qw-1q-TY4" firstAttribute="top" secondItem="05n-5W-A5V" secondAttribute="bottom" constant="400" id="0Xl-mQ-Vnx"/>
-                            <constraint firstItem="05n-5W-A5V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="42R-7n-QiD"/>
-                            <constraint firstItem="05n-5W-A5V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="6JH-wJ-yUH"/>
+                            <constraint firstItem="2Qw-1q-TY4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="6xz-lq-Zwn"/>
+                            <constraint firstItem="2Qw-1q-TY4" firstAttribute="top" secondItem="fJd-nh-rXo" secondAttribute="bottom" constant="300" id="B8e-NA-UAD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2Qw-1q-TY4" secondAttribute="bottom" constant="10" id="BbP-9b-AhC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Qw-1q-TY4" secondAttribute="trailing" constant="10" id="NUH-s0-Q3D"/>
-                            <constraint firstItem="2Qw-1q-TY4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e7Q-oK-fnM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="05n-5W-A5V" secondAttribute="trailing" constant="10" id="kCB-FO-kD2"/>
-                            <constraint firstItem="2Qw-1q-TY4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="tj5-DZ-Cdr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Qw-1q-TY4" secondAttribute="trailing" constant="10" id="Hf0-XN-wk2"/>
+                            <constraint firstItem="fJd-nh-rXo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="WRU-Hk-cjo"/>
+                            <constraint firstItem="fJd-nh-rXo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="XnN-0m-4I6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fJd-nh-rXo" secondAttribute="trailing" constant="10" id="zmD-U6-Rkp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Overview" id="UcC-CK-wje"/>
                     <connections>
                         <outlet property="progressBar" destination="05n-5W-A5V" id="yla-GA-Ha5"/>
+                        <outlet property="progressBarLabel" destination="dvI-gM-ziE" id="khe-Tp-u6d"/>
                         <segue destination="nwX-9G-eY0" kind="show" identifier="SegueLog" id="XFq-YU-MTi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="y50-L4-dBF">
+                    <connections>
+                        <action selector="progressTapped:" destination="BYZ-38-t0r" id="iZS-66-O9T"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1952.1739130434785" y="138.61607142857142"/>
         </scene>

@@ -12,6 +12,9 @@ import UICircularProgressRing
 class OverviewViewController: UIViewController {
 
     @IBOutlet var progressBar: UICircularProgressRing!
+    @IBOutlet var progressBarLabel: UILabel!
+    
+    private var isBig = false
     
     var foodEntries = FoodEntryArrayWrapper(array: [
         FoodEntry(name: "Big mac", amountCal: 500),
@@ -22,7 +25,7 @@ class OverviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        progressTapped(self)
         
     }
     
@@ -30,15 +33,32 @@ class OverviewViewController: UIViewController {
         tabBarController?.tabBar.items?[0].badgeValue = String(foodEntries.array.count)
         
         progressBar.value = calculatePercent()
+        progressBarLabel.text = String(totalCalories()) + " / 5000"
     }
     
     private func calculatePercent() -> CGFloat {
-        var result = 0
-        for entry in foodEntries.array {
-            result += entry.amountCal
+        return CGFloat((Double(totalCalories()) / 5000) * 100)
+    }
+    
+    private func totalCalories() -> Int {
+        return foodEntries.array.reduce(0) { $0 + $1.amountCal }
+    }
+    
+    // Recognize tap gesture on the stackview
+    @IBAction func progressTapped(_ sender: Any) {
+        if !isBig {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.progressBar.transform = CGAffineTransform.identity
+                self.progressBarLabel.alpha = 1.0
+            })
+        } else {
+            UIView.animate(withDuration: 0.5) {
+                self.progressBar.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+                self.progressBarLabel.alpha = 0.0
+            }
         }
-        print(result)
-        return CGFloat((Double(result) / 5000) * 100)
+        
+        isBig.toggle()
     }
     
     @IBAction func logButtonClicked(_ sender: Any) {
