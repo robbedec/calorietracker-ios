@@ -144,7 +144,6 @@
                 <navigationController id="e6m-al-OM4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="tag-m4-t2I"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Ah-ib-4jc">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

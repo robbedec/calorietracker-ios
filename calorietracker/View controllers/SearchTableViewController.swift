@@ -8,9 +8,11 @@
 
 import UIKit
 
-class SearchTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
 
     var items: [FoodEntry] = []
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,19 +21,7 @@ class SearchTableViewController: UITableViewController {
         
         setupNavBar()
         
-        NetworkController.singleton.fetchSearchResults(with: "cola") { results in
-            guard let foodEntries = results else { return }
-            self.items = foodEntries
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-            
-            for entry in foodEntries {
-                print(entry.name)
-                print(entry.amountCal)
-            }
-        }
+        
         
         
 
@@ -43,14 +33,36 @@ class SearchTableViewController: UITableViewController {
     }
     
     func setupNavBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        
+        searchController.searchResultsUpdater = self
+        self.definesPresentationContext = true
+        
         // Use large title
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        // Searchbar in the navigationbar
-        // SearchResultsController is the view that will hold the results
-        let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            print(searchText)
+            NetworkController.singleton.fetchSearchResults(with: searchText) { results in
+                guard let foodEntries = results else { return }
+                self.items = foodEntries
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
+                for entry in foodEntries {
+                    print(entry.name)
+                    print(entry.amountCal)
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
