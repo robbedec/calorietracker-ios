@@ -48,18 +48,17 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
-            print(searchText)
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            
             NetworkController.singleton.fetchSearchResults(with: searchText) { results in
                 guard let foodEntries = results else { return }
                 self.items = foodEntries
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                }
-                
-                for entry in foodEntries {
-                    print(entry.name)
-                    print(entry.amountCal)
+                    
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
             }
         }
