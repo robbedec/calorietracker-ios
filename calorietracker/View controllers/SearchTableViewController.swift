@@ -11,7 +11,8 @@ import UIKit
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
 
     var items: [FoodEntry] = []
-    
+    var searchTerms = ""
+    var searchWasCancelled = false
     
     
     override func viewDidLoad() {
@@ -20,10 +21,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         // User large title in the navigationbar
         
         setupNavBar()
-        
-        
-        
-        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -35,13 +32,17 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     func setupNavBar() {
         let searchController = UISearchController(searchResultsController: nil)
         
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
+        
         self.definesPresentationContext = true
         
         // Use large title
         navigationController?.navigationBar.prefersLargeTitles = true
         
         navigationItem.searchController = searchController
+        
+        // Never hide the searchbar
         navigationItem.hidesSearchBarWhenScrolling = false
     }
     
@@ -50,6 +51,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         if let searchText = searchController.searchBar.text {
             
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            
+            guard !searchText.isEmpty else {
+                self.items.removeAll()
+                self.tableView.reloadData()
+                return
+            }
             
             NetworkController.singleton.fetchSearchResults(with: searchText) { results in
                 guard let foodEntries = results else { return }
@@ -67,17 +74,18 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if section == 0 {
-            return items.count
+        if items.count == 0 {
+            self.tableView.setEmptyMessage("No results")
         } else {
-            return 0
+            self.tableView.restore()
         }
+        
+        return items.count
     }
 
     
