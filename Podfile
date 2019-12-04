@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'calorietracker' do
 	pod 'UICircularProgressRing'
+	pod 'RealmSwift'
 end
