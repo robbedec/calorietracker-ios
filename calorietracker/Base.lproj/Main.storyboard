@@ -209,7 +209,7 @@
         <!--Product Details-->
         <scene sceneID="H0M-ue-1hR">
             <objects>
-                <viewController title="Product Details" id="ZSq-iY-vNh" sceneMemberID="viewController">
+                <viewController title="Product Details" id="ZSq-iY-vNh" customClass="EntryDetailsViewController" customModule="calorietracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tij-L5-7Ii">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

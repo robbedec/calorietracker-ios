@@ -123,10 +123,12 @@ class LogTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-       /* if segue.identifier == "SegueManualAdd" {
-            let tableController = segue.destination as! ManualAddTableViewController
-            tableController.foodEntries = self.foodEntries
-        }*/
+        if segue.identifier == "SegueDetail" {
+            let path = self.tableView.indexPathForSelectedRow!
+            let viewController = segue.destination as! EntryDetailsViewController
+            
+            viewController.foodEntry = self.entries![path.row]
+        }
     }
     
     @IBAction func unwindToLogTableView(segue: UIStoryboardSegue) {

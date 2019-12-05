@@ -22,6 +22,7 @@ class NetworkController {
         ]
         
         let url = baseUrl.appendingPathComponent("search/instant").withQueries(query)!
+        print(url.absoluteString)
         
         let request = url.addHeaders(for: url)
 
