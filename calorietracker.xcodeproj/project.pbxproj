@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0354C4CA2399A5F00069E485 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354C4C92399A5F00069E485 /* SearchResultTableViewCell.swift */; };
 		037BDD042392CE9B00367B36 /* FoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037BDD032392CE9B00367B36 /* FoodEntry.swift */; };
 		037BDD062392CFA100367B36 /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037BDD052392CFA100367B36 /* LogTableViewController.swift */; };
 		037BDD0B2392F64400367B36 /* ManualAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037BDD0A2392F64400367B36 /* ManualAddTableViewController.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0354C4C92399A5F00069E485 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		037BDD032392CE9B00367B36 /* FoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntry.swift; sourceTree = "<group>"; };
 		037BDD052392CFA100367B36 /* LogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
 		037BDD0A2392F64400367B36 /* ManualAddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualAddTableViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		03EBBE07239266960030FA68 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0354C4C92399A5F00069E485 /* SearchResultTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				03EFDFDD2399709400EE84A1 /* EntryDetailsViewController.swift in Sources */,
 				03EA98882395B795002C6DD0 /* ApiWrapper.swift in Sources */,
 				037BDD0B2392F64400367B36 /* ManualAddTableViewController.swift in Sources */,
+				0354C4CA2399A5F00069E485 /* SearchResultTableViewCell.swift in Sources */,
 				03ED0E8B234A042F008FB1BA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
