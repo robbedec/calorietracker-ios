@@ -94,6 +94,7 @@ class LogTableViewController: UITableViewController {
                     print(error)
                 } else {
                     tableView.deleteRows(at: [indexPath], with: .fade)
+                    self.tabBarController?.tabBar.items?[0].badgeValue = String(RealmController.instance.entries.count)
                 }
             }
         } 
@@ -140,6 +141,7 @@ class LogTableViewController: UITableViewController {
                 print(error)
             } else {
                 self.tableView.insertRows(at: [newIndexPath], with: .automatic)
+                self.tabBarController?.tabBar.items?[0].badgeValue = String(RealmController.instance.entries.count)
             }
         }
         

@@ -106,6 +106,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                 print(error)
             } else {
                 self.tabBarController?.selectedIndex = 0
+                self.tabBarController?.tabBar.items?[0].badgeValue = String(RealmController.instance.entries.count)
             }
         }
     }
