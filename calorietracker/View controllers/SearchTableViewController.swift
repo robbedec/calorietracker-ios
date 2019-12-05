@@ -37,9 +37,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         
         self.definesPresentationContext = true
         
-        // Use large title
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
         navigationItem.searchController = searchController
         
         // Never hide the searchbar

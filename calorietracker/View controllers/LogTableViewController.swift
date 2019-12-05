@@ -68,7 +68,7 @@ class LogTableViewController: UITableViewController {
             self.present(alert, animated: true, completion: nil)
             return
         }
-        
+        performSegue(withIdentifier: "SegueDetail", sender: nil)
     }
     
 

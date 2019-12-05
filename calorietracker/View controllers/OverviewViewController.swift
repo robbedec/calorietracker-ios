@@ -20,9 +20,6 @@ class OverviewViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        // User large title in the navigationbar
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
         progressTapped(self)
         
     }
