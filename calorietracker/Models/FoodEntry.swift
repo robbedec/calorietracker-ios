@@ -7,19 +7,26 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct FoodEntry: Codable {
-    var name: String
-    var amountCal: Int
-    var fromAPI: Bool
+class FoodEntry: Object, Decodable {
+    @objc dynamic var name: String = ""
+    @objc dynamic var amountCal: Int = 0
+    @objc dynamic var fromAPI: Bool = false
+    @objc dynamic var dateAdded: Date?
     
-    init(name: String, amountCal: Int, fromAPI: Bool = false) {
+    required init() {
+        super.init()
+    }
+    
+    required init(name: String, amountCal: Int, fromAPI: Bool = false) {
+        super.init()
         self.name = name
         self.amountCal = amountCal
         self.fromAPI = fromAPI
     }
     
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy: CodingKeys.self)
         
         self.name = try valueContainer.decode(String.self, forKey: CodingKeys.name)
@@ -27,7 +34,7 @@ struct FoodEntry: Codable {
         self.fromAPI = true
     }
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name = "food_name"
         case amountCal = "nf_calories"
     }

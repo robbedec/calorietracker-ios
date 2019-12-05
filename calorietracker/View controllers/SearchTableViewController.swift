@@ -101,6 +101,17 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let foodEntry = items[indexPath.row]
+        
+        RealmController.instance.newEntry(entry: foodEntry){ error in
+            if let error = error {
+                print(error)
+            } else {
+                
+            }
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

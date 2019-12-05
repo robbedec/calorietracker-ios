@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ApiWrapper: Codable {
+struct ApiWrapper: Decodable {
     var branded: [FoodEntry]
     
     enum CodingKeys: String, CodingKey {

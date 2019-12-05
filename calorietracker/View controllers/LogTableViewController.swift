@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LogTableViewController: UITableViewController {
 
     var foodEntries: FoodEntryArrayWrapper!
+    var entries: Results<FoodEntry>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -23,7 +26,8 @@ class LogTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+        entries = RealmController.instance.entries
+        //tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -34,7 +38,7 @@ class LogTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return foodEntries.array.count
+            return entries.count
         } else {
             return 0
         }
@@ -45,7 +49,7 @@ class LogTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
         
         // Configure the cell...
-        let foodEntry = foodEntries.array[indexPath.row]
+        let foodEntry = entries[indexPath.row]
         
         cell.textLabel?.text = "\(foodEntry.name)"
         cell.detailTextLabel?.text = "\(foodEntry.amountCal) calories"
@@ -54,7 +58,7 @@ class LogTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let foodEntry = foodEntries.array[indexPath.row]
+        let foodEntry = entries[indexPath.row]
         
         guard foodEntry.fromAPI else {
             // Show an alert if the user clicks a manually added entry
@@ -85,8 +89,8 @@ class LogTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            foodEntries.array.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            //foodEntries.array.remove(at: indexPath.row)
+            //tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -126,8 +130,15 @@ class LogTableViewController: UITableViewController {
             let sourceViewController = segue.source as? ManualAddTableViewController,
             let newEntry = sourceViewController.foodEntry else { return }
         
-        let newIndexPath = IndexPath(row: foodEntries.array.count, section: 0)
-        foodEntries.array.append(newEntry)
-        tableView.insertRows(at: [newIndexPath], with: .automatic)
+        let newIndexPath = IndexPath(row: entries.count, section: 0)
+
+        RealmController.instance.newEntry(entry: newEntry) { error in
+            if let error = error {
+                print(error)
+            } else {
+                self.tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        }
+        
     }
 }
