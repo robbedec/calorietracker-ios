@@ -16,12 +16,6 @@ class OverviewViewController: UIViewController {
     
     private var isBig = false
     
-    var foodEntries = FoodEntryArrayWrapper(array: [
-        FoodEntry(name: "Big mac", amountCal: 500),
-        FoodEntry(name: "Banaan", amountCal: 90),
-        FoodEntry(name: "Cola", amountCal: 140)
-    ])
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -34,7 +28,7 @@ class OverviewViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tabBarController?.tabBar.items?[0].badgeValue = String(foodEntries.array.count)
+        tabBarController?.tabBar.items?[0].badgeValue = String(RealmController.instance.entries.count)
         
         progressBar.value = calculatePercent()
         progressBarLabel.text = String(totalCalories()) + " / 5000"
@@ -45,7 +39,7 @@ class OverviewViewController: UIViewController {
     }
     
     private func totalCalories() -> Int {
-        return foodEntries.array.reduce(0) { $0 + $1.amountCal }
+        return RealmController.instance.entries.reduce(0) { $0 + $1.amountCal }
     }
     
     // Recognize tap gesture on the stackview
