@@ -21,6 +21,8 @@ class NetworkController {
             "detailed": "true"
         ]
         
+        
+        
         let url = baseUrl.appendingPathComponent("search/instant").withQueries(query)!
         print(url.absoluteString)
         

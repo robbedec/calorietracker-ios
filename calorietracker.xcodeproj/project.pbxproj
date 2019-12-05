@@ -21,6 +21,7 @@
 		03ED0E95234A0435008FB1BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03ED0E93234A0435008FB1BA /* LaunchScreen.storyboard */; };
 		03ED0EA0234A0435008FB1BA /* calorietrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED0E9F234A0435008FB1BA /* calorietrackerTests.swift */; };
 		03ED0EAB234A0435008FB1BA /* calorietrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ED0EAA234A0435008FB1BA /* calorietrackerUITests.swift */; };
+		03EEC47D23999895008B6284 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EEC47C23999895008B6284 /* Photo.swift */; };
 		03EFD4B623990B2D005ECAA5 /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EFD4B523990B2D005ECAA5 /* RealmController.swift */; };
 		03EFDFDD2399709400EE84A1 /* EntryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EFDFDC2399709400EE84A1 /* EntryDetailsViewController.swift */; };
 		69CE5AFF47750723C016D99E /* Pods_calorietracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2E747E2CD64BCBFEC055D9 /* Pods_calorietracker.framework */; };
@@ -64,6 +65,7 @@
 		03ED0EA6234A0435008FB1BA /* calorietrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calorietrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03ED0EAA234A0435008FB1BA /* calorietrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calorietrackerUITests.swift; sourceTree = "<group>"; };
 		03ED0EAC234A0435008FB1BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03EEC47C23999895008B6284 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		03EFD4B523990B2D005ECAA5 /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmController.swift; path = calorietracker/Models/RealmController.swift; sourceTree = SOURCE_ROOT; };
 		03EFDFDC2399709400EE84A1 /* EntryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailsViewController.swift; sourceTree = "<group>"; };
 		2D634DBD1AEAE56CEA2B38D5 /* Pods-calorietracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calorietracker.debug.xcconfig"; path = "Target Support Files/Pods-calorietracker/Pods-calorietracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				037BDD032392CE9B00367B36 /* FoodEntry.swift */,
 				03EA98872395B795002C6DD0 /* ApiWrapper.swift */,
+				03EEC47C23999895008B6284 /* Photo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EEC47D23999895008B6284 /* Photo.swift in Sources */,
 				03EB76152394046B00D364FC /* NetworkController.swift in Sources */,
 				03EA98862395AD82002C6DD0 /* Extensions.swift in Sources */,
 				03EA38E62394562D0021B126 /* SearchTableViewController.swift in Sources */,
