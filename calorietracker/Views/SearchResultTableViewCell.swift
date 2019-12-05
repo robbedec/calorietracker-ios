@@ -10,6 +10,10 @@ import UIKit
 
 class SearchResultTableViewCell: UITableViewCell {
 
+    @IBOutlet var entryLabel: UIImageView!
+    @IBOutlet var entryTitle: UILabel!
+    @IBOutlet var entrySubTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +24,9 @@ class SearchResultTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func update(with entry: FoodEntry) {
+        self.entryTitle.text = entry.name
+        self.entrySubTitle.text = "\(String(entry.amountCal)) calories"
+    }
 }

@@ -87,13 +87,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as! SearchResultTableViewCell
         
         // Configure the cell...
         let foodEntry = items[indexPath.row]
         
-        cell.textLabel?.text = "\(foodEntry.name)"
-        cell.detailTextLabel?.text = "\(foodEntry.amountCal) calories"
+        cell.update(with: foodEntry)
         
         return cell
     }
