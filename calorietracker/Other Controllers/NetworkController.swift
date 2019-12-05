@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkController {
     static let instance: NetworkController = NetworkController()
@@ -34,6 +35,20 @@ class NetworkController {
                 completion(apiWrapper.branded)
             } else {
                 print("a network error had occurred")
+                completion(nil)
+            }
+        }
+        task.resume()
+    }
+    
+    func fetchImage(with url: URL, completion: @escaping(UIImage?) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data {
+                URLCache.shared.storeCachedResponse(CachedURLResponse(response: response!, data: data), for: URLRequest(url: url))
+                
+                let image = UIImage(data: data)
+                completion(image)
+            } else {
                 completion(nil)
             }
         }

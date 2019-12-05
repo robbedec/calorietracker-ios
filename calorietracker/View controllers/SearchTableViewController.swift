@@ -92,7 +92,18 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         // Configure the cell...
         let foodEntry = items[indexPath.row]
         
-        cell.update(with: foodEntry)
+        if let icon = foodEntry.image?.thumb {
+            let image = URL(string: icon)!
+            NetworkController.instance.fetchImage(with: image) { image in
+                guard let image = image else { return }
+                DispatchQueue.main.async {
+                    cell.update(with: foodEntry, image: image)
+                }
+            }
+        }
+        
+        
+        
         
         return cell
     }
