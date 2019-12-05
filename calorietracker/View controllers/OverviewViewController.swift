@@ -71,8 +71,7 @@ class OverviewViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SegueLog" {
-            let tableController = segue.destination as! LogTableViewController
-            tableController.foodEntries = self.foodEntries
+            
         }
     }
 }

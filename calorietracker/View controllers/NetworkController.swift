@@ -9,7 +9,7 @@
 import Foundation
 
 class NetworkController {
-    static let singleton: NetworkController = NetworkController()
+    static let instance: NetworkController = NetworkController()
     
     let baseUrl: URL = URL(string: "https://trackapi.nutritionix.com/v2/")!
     

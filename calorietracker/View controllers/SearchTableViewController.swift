@@ -58,7 +58,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                 return
             }
             
-            NetworkController.singleton.fetchSearchResults(with: searchText) { results in
+            NetworkController.instance.fetchSearchResults(with: searchText) { results in
                 guard let foodEntries = results else { return }
                 self.items = foodEntries
                 
@@ -108,7 +108,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             if let error = error {
                 print(error)
             } else {
-                
+                self.tabBarController?.selectedIndex = 0
             }
         }
     }

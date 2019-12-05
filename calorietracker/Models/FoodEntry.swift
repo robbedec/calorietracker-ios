@@ -10,6 +10,8 @@ import Foundation
 import RealmSwift
 
 class FoodEntry: Object, Decodable {
+    
+    @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
     @objc dynamic var amountCal: Int = 0
     @objc dynamic var fromAPI: Bool = false
@@ -32,6 +34,10 @@ class FoodEntry: Object, Decodable {
         self.name = try valueContainer.decode(String.self, forKey: CodingKeys.name)
         self.amountCal = try Int(valueContainer.decode(Double.self, forKey: CodingKeys.amountCal))
         self.fromAPI = true
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
     
     private enum CodingKeys: String, CodingKey {

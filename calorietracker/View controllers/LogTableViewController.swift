@@ -11,7 +11,6 @@ import RealmSwift
 
 class LogTableViewController: UITableViewController {
 
-    var foodEntries: FoodEntryArrayWrapper!
     var entries: Results<FoodEntry>!
     
     override func viewDidLoad() {
@@ -27,7 +26,7 @@ class LogTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         entries = RealmController.instance.entries
-        //tableView.reloadData()
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -89,11 +88,15 @@ class LogTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            //foodEntries.array.remove(at: indexPath.row)
-            //tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            let foodEntry = entries[indexPath.row]
+            RealmController.instance.removeEntry(entry: foodEntry) { error in
+                if let error = error {
+                    print(error)
+                } else {
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+            }
+        } 
     }
     
 
