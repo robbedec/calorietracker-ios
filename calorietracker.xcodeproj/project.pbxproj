@@ -47,16 +47,14 @@
 
 /* Begin PBXFileReference section */
 		0354C4C92399A5F00069E485 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
-		0354C4CE2399B04C0069E485 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkController.swift; path = "calorietracker/Other Controllers/NetworkController.swift"; sourceTree = "<group>"; };
-		0354C4D02399B06C0069E485 /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmController.swift; path = "calorietracker/Other Controllers/RealmController.swift"; sourceTree = "<group>"; };
-		0354C4D22399B09A0069E485 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "calorietracker/Other Controllers/Extensions.swift"; sourceTree = "<group>"; };
+		0354C4CE2399B04C0069E485 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		0354C4D02399B06C0069E485 /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
+		0354C4D22399B09A0069E485 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		037BDD032392CE9B00367B36 /* FoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntry.swift; sourceTree = "<group>"; };
 		037BDD052392CFA100367B36 /* LogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
 		037BDD0A2392F64400367B36 /* ManualAddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualAddTableViewController.swift; sourceTree = "<group>"; };
 		03EA38E52394562D0021B126 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
-		03EA98852395AD82002C6DD0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "calorietracker/View controllers/Extensions.swift"; sourceTree = SOURCE_ROOT; };
 		03EA98872395B795002C6DD0 /* ApiWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiWrapper.swift; sourceTree = "<group>"; };
-		03EB76142394046B00D364FC /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkController.swift; path = "calorietracker/View controllers/NetworkController.swift"; sourceTree = SOURCE_ROOT; };
 		03ED0E87234A042F008FB1BA /* calorietracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calorietracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03ED0E8A234A042F008FB1BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03ED0E8C234A042F008FB1BA /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 		03ED0EAA234A0435008FB1BA /* calorietrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calorietrackerUITests.swift; sourceTree = "<group>"; };
 		03ED0EAC234A0435008FB1BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03EEC47C23999895008B6284 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		03EFD4B523990B2D005ECAA5 /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmController.swift; path = calorietracker/Models/RealmController.swift; sourceTree = SOURCE_ROOT; };
 		03EFDFDC2399709400EE84A1 /* EntryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailsViewController.swift; sourceTree = "<group>"; };
 		2D634DBD1AEAE56CEA2B38D5 /* Pods-calorietracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calorietracker.debug.xcconfig"; path = "Target Support Files/Pods-calorietracker/Pods-calorietracker.debug.xcconfig"; sourceTree = "<group>"; };
 		3A2E747E2CD64BCBFEC055D9 /* Pods_calorietracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_calorietracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,9 +134,9 @@
 		03EBBE09239266B30030FA68 /* Other controllers */ = {
 			isa = PBXGroup;
 			children = (
-				03EB76142394046B00D364FC /* NetworkController.swift */,
-				03EA98852395AD82002C6DD0 /* Extensions.swift */,
-				03EFD4B523990B2D005ECAA5 /* RealmController.swift */,
+				0354C4D22399B09A0069E485 /* Extensions.swift */,
+				0354C4D02399B06C0069E485 /* RealmController.swift */,
+				0354C4CE2399B04C0069E485 /* NetworkController.swift */,
 			);
 			path = "Other controllers";
 			sourceTree = "<group>";
@@ -147,9 +144,6 @@
 		03ED0E7E234A042F008FB1BA = {
 			isa = PBXGroup;
 			children = (
-				0354C4D22399B09A0069E485 /* Extensions.swift */,
-				0354C4D02399B06C0069E485 /* RealmController.swift */,
-				0354C4CE2399B04C0069E485 /* NetworkController.swift */,
 				03ED0E89234A042F008FB1BA /* calorietracker */,
 				03ED0E9E234A0435008FB1BA /* calorietrackerTests */,
 				03ED0EA9234A0435008FB1BA /* calorietrackerUITests */,
