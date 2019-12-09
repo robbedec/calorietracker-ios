@@ -25,7 +25,8 @@ class SearchResultTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func update(with entry: FoodEntry) {
+    func update(with entry: FoodEntry, image: UIImage) {
+        self.entryLabel.image = image
         self.entryTitle.text = entry.name
         self.entrySubTitle.text = "\(String(entry.amountCal)) calories"
     }

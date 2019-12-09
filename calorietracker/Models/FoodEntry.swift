@@ -18,6 +18,7 @@ class FoodEntry: Object, Decodable {
     @objc dynamic var dateAdded: Date?
     @objc dynamic var brandName: String = ""
     @objc dynamic var image: Photo?
+    var nutrients = List<AbstractNutrient>()
     
     var weight: RealmOptional<Double> = RealmOptional<Double>()
     
@@ -47,6 +48,8 @@ class FoodEntry: Object, Decodable {
         if let weight = weight {
             self.weight.value = weight
         }
+        
+        self.nutrients.append(objectsIn: try valueContainer.decode([AbstractNutrient].self, forKey: CodingKeys.nutrients))
     }
     
     override static func primaryKey() -> String? {
@@ -59,5 +62,6 @@ class FoodEntry: Object, Decodable {
         case brandName = "brand_name"
         case weight = "serving_weight_grams"
         case photo
+        case nutrients = "full_nutrients"
     }
 }

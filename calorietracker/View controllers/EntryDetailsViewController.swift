@@ -10,14 +10,26 @@ import UIKit
 
 class EntryDetailsViewController: UIViewController {
 
+    @IBOutlet var entryName: UILabel!
+    @IBOutlet var entryCompany: UILabel!
+    
+    
     var foodEntry: FoodEntry!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        entryName.text = foodEntry.name
+        entryCompany.text = foodEntry.brandName
+        
         print(foodEntry.name)
         print(foodEntry.weight.value)
+        print(foodEntry.nutrients.count)
+        
+        for nut in foodEntry.nutrients {
+            print(nut.name)
+        }
     }
     
 

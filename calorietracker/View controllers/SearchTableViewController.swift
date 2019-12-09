@@ -92,7 +92,18 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         // Configure the cell...
         let foodEntry = items[indexPath.row]
         
-        cell.update(with: foodEntry)
+        if let icon = foodEntry.image?.thumb {
+            let image = URL(string: icon)!
+            NetworkController.instance.fetchImage(with: image) { image in
+                guard let image = image else { return }
+                DispatchQueue.main.async {
+                    cell.update(with: foodEntry, image: image)
+                }
+            }
+        }
+        
+        
+        
         
         return cell
     }
@@ -100,14 +111,29 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let foodEntry = items[indexPath.row]
         
-        RealmController.instance.newEntry(entry: foodEntry){ error in
-            if let error = error {
-                print(error)
-            } else {
-                self.tabBarController?.selectedIndex = 0
-                self.tabBarController?.tabBar.items?[0].badgeValue = String(RealmController.instance.entries.count)
+        NetworkController.instance.fetchNutrientInformation() { results in
+            guard let results = results else { return }
+            
+            for nutrient in foodEntry.nutrients {
+                let obj = results.first(where: { $0.id == nutrient.id })
+                
+                if let obj = obj {
+                    nutrient.name = obj.name
+                    nutrient.unit = obj.unit
+                }
             }
-        }
+          
+            DispatchQueue.main.async {
+                RealmController.instance.newEntry(entry: foodEntry){ error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        self.tabBarController?.selectedIndex = 0
+                        self.tabBarController?.tabBar.items?[0].badgeValue = String(RealmController.instance.entries.count)
+                    }
+                }
+            }
+         }
     }
 
     /*
