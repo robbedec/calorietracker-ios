@@ -12,6 +12,7 @@ class EntryDetailsViewController: UIViewController, UITableViewDelegate, UITable
 
     @IBOutlet var entryName: UILabel!
     @IBOutlet var entryCompany: UILabel!
+    @IBOutlet var entryWeight: UILabel!
     @IBOutlet var entryNutrients: UITableView!
     
     var foodEntry: FoodEntry!
@@ -20,8 +21,9 @@ class EntryDetailsViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        entryName.text = foodEntry.name
+        entryName.text = "\(foodEntry.name) (\(String(foodEntry.amountCal)) calories)"
         entryCompany.text = foodEntry.brandName
+        entryWeight.text = "Serving weight is \(String(foodEntry.weight.value!)) grams"
         
         self.entryNutrients.dataSource = self
         self.entryNutrients.delegate = self
