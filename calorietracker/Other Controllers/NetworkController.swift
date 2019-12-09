@@ -53,6 +53,7 @@ class NetworkController {
         }
         task.resume()
     }
+<<<<<<< HEAD
     
     func fetchNutrientInformation(completion: @escaping(_ info: [NutrientInfo]?) -> Void) {
         let url = baseUrl.appendingPathComponent("utils/nutrients")
@@ -69,6 +70,8 @@ class NetworkController {
         }
         task.resume()
     }
+=======
+>>>>>>> e04e5c83771a716246a7591072babd7e08c141a9
 }
 
 extension URL {
