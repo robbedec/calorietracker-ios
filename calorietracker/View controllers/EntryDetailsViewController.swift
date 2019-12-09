@@ -8,11 +8,11 @@
 
 import UIKit
 
-class EntryDetailsViewController: UIViewController {
+class EntryDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var entryName: UILabel!
     @IBOutlet var entryCompany: UILabel!
-    
+    @IBOutlet var entryNutrients: UITableView!
     
     var foodEntry: FoodEntry!
     
@@ -23,13 +23,21 @@ class EntryDetailsViewController: UIViewController {
         entryName.text = foodEntry.name
         entryCompany.text = foodEntry.brandName
         
-        print(foodEntry.name)
-        print(foodEntry.weight.value)
-        print(foodEntry.nutrients.count)
+        self.entryNutrients.dataSource = self
+        self.entryNutrients.delegate = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return foodEntry.nutrients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = entryNutrients.dequeueReusableCell(withIdentifier: "NutrientCell", for: indexPath)
         
-        for nut in foodEntry.nutrients {
-            print(nut.name)
-        }
+        let nutrient = self.foodEntry.nutrients[indexPath.row]
+        
+        cell.textLabel?.text = "\(String(nutrient.value.value!)) \(nutrient.unit) \(nutrient.name)"
+        return cell
     }
     
 
