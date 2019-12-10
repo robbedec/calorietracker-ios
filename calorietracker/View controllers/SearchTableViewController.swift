@@ -11,14 +11,9 @@ import UIKit
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
 
     var items: [FoodEntry] = []
-    var searchTerms = ""
-    var searchWasCancelled = false
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // User large title in the navigationbar
         
         setupNavBar()
 
@@ -54,12 +49,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                 self.tableView.reloadData()
                 return
             }
-            
+            self.showSpinner()
             NetworkController.instance.fetchSearchResults(with: searchText) { results in
                 guard let foodEntries = results else { return }
+                
                 self.items = foodEntries
                 
                 DispatchQueue.main.async {
+                    self.removeSpinner()
                     self.tableView.reloadData()
                     
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -101,10 +98,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                 }
             }
         }
-        
-        
-        
-        
         return cell
     }
     

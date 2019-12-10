@@ -28,3 +28,34 @@ extension UITableView {
         self.separatorStyle = .singleLine
     }
 }
+
+/*
+ Display and remove an acitivity indicator on a viewcontroller
+ 
+ SOURCE: https://www.youtube.com/watch?v=twgb5IPwR4I
+ */
+fileprivate var indicatorView: UIView!
+
+extension UIViewController {
+    func showSpinner() {
+        self.removeSpinner()
+        indicatorView = UIView(frame: self.view.bounds)
+        indicatorView?.backgroundColor = UIColor.init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.9)
+        
+        let ai = UIActivityIndicatorView(style: .whiteLarge)
+        ai.center = view!.center
+        ai.startAnimating()
+        
+        indicatorView?.addSubview(ai)
+        self.view.addSubview(indicatorView!)
+        
+        Timer.scheduledTimer(withTimeInterval: 20, repeats: false) { (t) in
+            self.removeSpinner()
+        }
+    }
+    
+    func removeSpinner() {
+        indicatorView?.removeFromSuperview()
+        indicatorView = nil
+    }
+}
