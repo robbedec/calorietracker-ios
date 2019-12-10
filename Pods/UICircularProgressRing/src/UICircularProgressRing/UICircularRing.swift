@@ -183,7 +183,7 @@ import UIKit
      ## Author
      Luis Padron
      */
-    @IBInspectable open var outerRingWidth: CGFloat = 10.0 {
+    @IBInspectable open var outerRingWidth: CGFloat = 15.0 {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
@@ -196,7 +196,7 @@ import UIKit
      ## Author
      Luis Padron
      */
-    @IBInspectable open var outerRingColor: UIColor = UIColor.gray {
+    @IBInspectable open var outerRingColor: UIColor = UIColor(red: 0.451, green: 0.4706, blue: 0.851, alpha: 1.0) {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
@@ -228,7 +228,7 @@ import UIKit
      ## Author
      Luis Padron
      */
-    @IBInspectable open var innerRingWidth: CGFloat = 5.0 {
+    @IBInspectable open var innerRingWidth: CGFloat = 13.0 {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
@@ -241,7 +241,7 @@ import UIKit
      ## Author
      Luis Padron
      */
-    @IBInspectable open var innerRingColor: UIColor = UIColor.blue {
+    @IBInspectable open var innerRingColor: UIColor = UIColor(red: 141/255, green: 188/255, blue: 235/255, alpha: 1.0) {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
@@ -304,7 +304,7 @@ import UIKit
      ## Author
      Luis Padron
      */
-    @IBInspectable open var font: UIFont = UIFont.systemFont(ofSize: 18) {
+    @IBInspectable open var font: UIFont = UIFont.systemFont(ofSize: 30) {
         didSet { ringLayer.setNeedsDisplay() }
     }
 
