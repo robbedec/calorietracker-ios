@@ -13,7 +13,12 @@ import UIKit
 class RealmController {
     static let instance: RealmController = RealmController()
     
-    var entries: Results<FoodEntry> = try! Realm().objects(FoodEntry.self)
+    var entries: Results<FoodEntry> = try! Realm().objects(FoodEntry.self).filter("dateAdded BETWEEN %@", [Calendar.current.startOfDay(for: Date()), {
+                let components = DateComponents(day: 1, second: -1)
+                return Calendar.current.date(byAdding: components, to: Date())!
+            }()
+        ]
+    ).sorted(byKeyPath: "dateAdded", ascending: false)
     
     func newEntry(entry: FoodEntry, completion: @escaping(Error?) -> Void) {
         do {

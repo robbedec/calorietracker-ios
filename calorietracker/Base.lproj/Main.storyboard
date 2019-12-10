@@ -77,7 +77,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Overview" id="UcC-CK-wje"/>
+                    <navigationItem key="navigationItem" title="Overview" id="UcC-CK-wje">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="eMl-nZ-eYd">
+                            <color key="tintColor" red="0.45098039220000002" green="0.47058823529999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="clearButtonClicked:" destination="BYZ-38-t0r" id="Sw7-gy-Fdh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="progressBar" destination="05n-5W-A5V" id="yla-GA-Ha5"/>
                         <outlet property="progressBarLabel" destination="dvI-gM-ziE" id="khe-Tp-u6d"/>
@@ -228,6 +235,7 @@
                     <navigationItem key="navigationItem" title="Todays log" id="2Gp-3C-teB">
                         <barButtonItem key="backBarButtonItem" title="Todays log" id="vyY-PB-eiA"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Za4-aG-SHP">
+                            <color key="tintColor" red="0.45098039220000002" green="0.47058823529999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="mUR-40-vhK" kind="presentation" identifier="SegueManualAdd" id="sKO-Ri-1oh"/>
                             </connections>
@@ -424,11 +432,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="New Entry" id="E21-5T-yks">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="NaY-9K-VIE">
+                            <color key="tintColor" red="0.45098039220000002" green="0.47058823529999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="lp6-iA-tz3" kind="unwind" identifier="SegueManualCancel" unwindAction="unwindToLogTableViewWithSegue:" id="W6F-ff-VRt"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="maI-I4-Tip">
+                            <color key="tintColor" red="0.45098039220000002" green="0.47058823529999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="lp6-iA-tz3" kind="unwind" identifier="SegueManualSave" unwindAction="unwindToLogTableViewWithSegue:" id="Tu3-qa-hbz"/>
                             </connections>
@@ -509,4 +519,5 @@
     <resources>
         <image name="Image" width="1306" height="1589"/>
     </resources>
+    <color key="tintColor" red="0.45098039220000002" green="0.47058823529999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

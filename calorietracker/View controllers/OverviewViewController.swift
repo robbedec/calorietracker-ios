@@ -24,6 +24,10 @@ class OverviewViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        setUpLabels()
+    }
+    
+    private func setUpLabels() {
         tabBarController?.tabBar.items?[0].badgeValue = String(RealmController.instance.entries.count)
         
         progressBar.value = calculatePercent()
@@ -57,6 +61,28 @@ class OverviewViewController: UIViewController {
     
     @IBAction func logButtonClicked(_ sender: Any) {
         performSegue(withIdentifier: "SegueLog", sender: nil)
+    }
+    
+    
+    @IBAction func clearButtonClicked(_ sender: Any) {
+        let alert = UIAlertController(title: "Clear entries", message: "Are you sure that you want to delete your current data?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: clearDatabaseConfirmed))
+        
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    private func clearDatabaseConfirmed(alert: UIAlertAction) {
+        RealmController.instance.clearDatabase() { error in
+            if let error = error {
+                print(error)
+            } else {
+                self.setUpLabels()
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
