@@ -23,7 +23,14 @@ class EntryDetailsViewController: UIViewController, UITableViewDelegate, UITable
         // Do any additional setup after loading the view.
         entryName.text = "\(foodEntry.name) (\(String(foodEntry.amountCal)) calories)"
         entryCompany.text = foodEntry.brandName
-        entryWeight.text = "Serving weight is \(String(foodEntry.weight.value!)) grams"
+        
+        if let servingValue = foodEntry.weight.value {
+            entryWeight.text = "Serving weight is \(String(servingValue)) grams"
+        } else {
+            entryWeight.text = "No available serving weight"
+        }
+        
+        
         
         self.entryNutrients.dataSource = self
         self.entryNutrients.delegate = self
