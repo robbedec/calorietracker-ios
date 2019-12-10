@@ -15,6 +15,7 @@ class OverviewViewController: UIViewController {
     @IBOutlet var progressBarLabel: UILabel!
     
     private var isBig = false
+    private var dailyIntake = 5000
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +32,11 @@ class OverviewViewController: UIViewController {
         tabBarController?.tabBar.items?[0].badgeValue = String(RealmController.instance.entries.count)
         
         progressBar.value = calculatePercent()
-        progressBarLabel.text = String(totalCalories()) + " / 5000"
+        progressBarLabel.text = String(totalCalories()) + " / \(String(dailyIntake)) \n \(dailyIntake - totalCalories()) calories until daily goal"
     }
     
     private func calculatePercent() -> CGFloat {
-        return CGFloat((Double(totalCalories()) / 5000) * 100)
+        return CGFloat((Double(totalCalories()) / Double(dailyIntake)) * 100)
     }
     
     private func totalCalories() -> Int {
@@ -82,12 +83,6 @@ class OverviewViewController: UIViewController {
             } else {
                 self.setUpLabels()
             }
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SegueLog" {
-            
         }
     }
 }
