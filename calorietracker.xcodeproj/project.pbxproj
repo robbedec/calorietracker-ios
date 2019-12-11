@@ -16,6 +16,7 @@
 		037BDD0B2392F64400367B36 /* ManualAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037BDD0A2392F64400367B36 /* ManualAddTableViewController.swift */; };
 		03EA38E62394562D0021B126 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA38E52394562D0021B126 /* SearchTableViewController.swift */; };
 		03EA98882395B795002C6DD0 /* ApiWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA98872395B795002C6DD0 /* ApiWrapper.swift */; };
+		03ECEA6923A10CE3009E6FD2 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ECEA6823A10CE3009E6FD2 /* AppUtil.swift */; };
 		03ECF45D239E89CF00D9DD38 /* AbstractNutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ECF45C239E89CF00D9DD38 /* AbstractNutrient.swift */; };
 		03ECF45F239E8BB500D9DD38 /* Nutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ECF45E239E8BB500D9DD38 /* Nutrient.swift */; };
 		03ECF461239E8CBE00D9DD38 /* NutrientInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ECF460239E8CBE00D9DD38 /* NutrientInfo.swift */; };
@@ -58,6 +59,7 @@
 		037BDD0A2392F64400367B36 /* ManualAddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualAddTableViewController.swift; sourceTree = "<group>"; };
 		03EA38E52394562D0021B126 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		03EA98872395B795002C6DD0 /* ApiWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiWrapper.swift; sourceTree = "<group>"; };
+		03ECEA6823A10CE3009E6FD2 /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppUtil.swift; path = "calorietracker/Other Controllers/AppUtil.swift"; sourceTree = SOURCE_ROOT; };
 		03ECF45C239E89CF00D9DD38 /* AbstractNutrient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractNutrient.swift; sourceTree = "<group>"; };
 		03ECF45E239E8BB500D9DD38 /* Nutrient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrient.swift; sourceTree = "<group>"; };
 		03ECF460239E8CBE00D9DD38 /* NutrientInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientInfo.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				0354C4D22399B09A0069E485 /* Extensions.swift */,
 				0354C4D02399B06C0069E485 /* RealmController.swift */,
 				0354C4CE2399B04C0069E485 /* NetworkController.swift */,
+				03ECEA6823A10CE3009E6FD2 /* AppUtil.swift */,
 			);
 			path = "Other controllers";
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				03EEC47D23999895008B6284 /* Photo.swift in Sources */,
 				03ECF45D239E89CF00D9DD38 /* AbstractNutrient.swift in Sources */,
 				03EA38E62394562D0021B126 /* SearchTableViewController.swift in Sources */,
+				03ECEA6923A10CE3009E6FD2 /* AppUtil.swift in Sources */,
 				037BDD042392CE9B00367B36 /* FoodEntry.swift in Sources */,
 				037BDD062392CFA100367B36 /* LogTableViewController.swift in Sources */,
 				03ED0E8D234A042F008FB1BA /* OverviewViewController.swift in Sources */,
