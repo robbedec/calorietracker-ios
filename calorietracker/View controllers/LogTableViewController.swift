@@ -136,7 +136,7 @@ class LogTableViewController: UITableViewController {
             let sourceViewController = segue.source as? ManualAddTableViewController,
             let newEntry = sourceViewController.foodEntry else { return }
         
-        let newIndexPath = IndexPath(row: entries.count, section: 0)
+        let newIndexPath = IndexPath(row: 0, section: 0)
 
         RealmController.instance.newEntry(entry: newEntry) { error in
             if let error = error {
