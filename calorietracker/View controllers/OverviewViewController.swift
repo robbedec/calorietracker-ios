@@ -42,6 +42,12 @@ class OverviewViewController: UIViewController {
         tabBarController?.tabBar.items?[0].badgeValue = String(RealmController.instance.entries.count)
         
         progressBar.value = calculatePercent()
+        
+        guard totalCalories() < dailyIntake else {
+            progressBarLabel.text = String(totalCalories()) + " / \(String(dailyIntake)) \n" + "Daily goal exceeded!"
+            return
+        }
+        
         progressBarLabel.text = String(totalCalories()) + " / \(String(dailyIntake)) \n \(dailyIntake - totalCalories()) calories until daily goal"
     }
     
