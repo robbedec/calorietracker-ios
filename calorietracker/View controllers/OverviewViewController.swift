@@ -84,8 +84,8 @@ class OverviewViewController: UIViewController {
     @IBAction func clearButtonClicked(_ sender: Any) {
         let alert = UIAlertController(title: "Clear entries", message: "Are you sure that you want to delete your current data?", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: clearDatabaseConfirmed))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Clear", style: .destructive, handler: clearDatabaseConfirmed))
         
         
         self.present(alert, animated: true, completion: nil)
