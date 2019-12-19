@@ -27,7 +27,7 @@ class OverviewViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        AppUtility.lockOrientation(.portrait)
+        AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
         setUpLabels()
     }
     
@@ -36,6 +36,10 @@ class OverviewViewController: UIViewController {
         
         // Don't forget to reset when view is being removed
         AppUtility.lockOrientation(.all)
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
     
     private func setUpLabels() {
