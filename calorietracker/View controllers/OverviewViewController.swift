@@ -38,21 +38,23 @@ class OverviewViewController: UIViewController {
         AppUtility.lockOrientation(.all)
     }
     
-    override var shouldAutorotate: Bool {
-        return false
-    }
-    
     private func setUpLabels() {
         tabBarController?.tabBar.items?[0].badgeValue = String(RealmController.instance.entries.count)
         
         progressBar.value = calculatePercent()
+        progressBarLabel.text = String(totalCalories()) + " / \(String(dailyIntake)) \n"
         
-        guard totalCalories() < dailyIntake else {
-            progressBarLabel.text = String(totalCalories()) + " / \(String(dailyIntake)) \n" + "Daily goal exceeded!"
+        guard totalCalories() < dailyIntake || totalCalories() == dailyIntake else {
+            progressBarLabel.text! += "Daily goal exceeded!"
             return
         }
         
-        progressBarLabel.text = String(totalCalories()) + " / \(String(dailyIntake)) \n \(dailyIntake - totalCalories()) calories until daily goal"
+        guard totalCalories() != dailyIntake else {
+            progressBarLabel.text! += "Daily goal reached!"
+            return
+        }
+        
+        progressBarLabel.text! += "\(dailyIntake - totalCalories()) calories until daily goal"
     }
     
     private func calculatePercent() -> CGFloat {
