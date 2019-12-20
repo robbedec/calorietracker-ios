@@ -24,6 +24,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        AppUtility.lockOrientation(.all)
+    }
+    
     func setupNavBar() {
         let searchController = UISearchController(searchResultsController: nil)
         
