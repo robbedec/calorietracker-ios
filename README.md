@@ -18,13 +18,19 @@ Clone the repository
 git clone git@github.com:robbedec/calorietracker-ios.git
 ```
 
-Install project dependencies
+Open the **.xcworkspace** file in Xcode and build
+
+### Dependencies
+
+I have chosen to include the source code from the dependecies in this repository. There are some changes made to improve layout and accessibility in these files. **There is no further configuration necessary to manage the dependecies after cloning the repository.**
+
+If for some reason you actually have to reinstall the dependencies, run this command: 
 
 ```
 pod install
 ```
 
-Open the generated .xcworkspace file in Xcode and build
+and update the source files manually using the commit history of this repository.
 
 ## Built with
 
