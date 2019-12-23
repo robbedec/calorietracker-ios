@@ -11,6 +11,7 @@ import UIKit
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
 
     var items: [FoodEntry] = []
+    var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,23 +53,34 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             
+            self.timer?.invalidate()
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(SearchTableViewController.showResults), userInfo: searchText, repeats: false)
+            
             guard !searchText.isEmpty else {
+                self.timer.invalidate()
                 self.items.removeAll()
                 self.tableView.reloadData()
                 return
             }
+            
             self.showSpinner()
-            NetworkController.instance.fetchSearchResults(with: searchText) { results in
-                guard let foodEntries = results else { return }
+        }
+    }
+    
+    @objc func showResults() {
+        guard let searchText = timer.userInfo as? String else { return }
+        
+        NetworkController.instance.fetchSearchResults(with: searchText) { results in
+            guard let foodEntries = results else { return }
+            
+            self.items = foodEntries
+            
+            DispatchQueue.main.async {
+                self.timer.invalidate()
+                self.removeSpinner()
+                self.tableView.reloadData()
                 
-                self.items = foodEntries
-                
-                DispatchQueue.main.async {
-                    self.removeSpinner()
-                    self.tableView.reloadData()
-                    
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                }
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
     }
@@ -99,9 +111,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         
         if let icon = foodEntry.image?.thumb {
             let image = URL(string: icon)!
+            self.showSpinner()
             NetworkController.instance.fetchImage(with: image) { image in
                 guard let image = image else { return }
                 DispatchQueue.main.async {
+                    self.removeSpinner()
                     cell.update(with: foodEntry, image: image)
                 }
             }
@@ -136,50 +150,4 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             }
          }
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
