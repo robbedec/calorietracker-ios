@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// SOURCE: https://stackoverflow.com/a/45157417
 extension UITableView {
     func setEmptyMessage(_ message: String) {
         let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
@@ -49,7 +50,7 @@ extension UIViewController {
         indicatorView?.addSubview(ai)
         self.view.addSubview(indicatorView!)
         
-        Timer.scheduledTimer(withTimeInterval: 20, repeats: false) { (t) in
+        Timer.scheduledTimer(withTimeInterval: 15, repeats: false) { (t) in
             self.removeSpinner()
         }
     }
