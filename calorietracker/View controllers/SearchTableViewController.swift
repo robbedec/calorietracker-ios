@@ -17,12 +17,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         super.viewDidLoad()
         
         setupNavBar()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +53,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             guard !searchText.isEmpty else {
                 self.timer.invalidate()
                 self.items.removeAll()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
                 self.tableView.reloadData()
                 return
             }
@@ -92,7 +87,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if items.count == 0 {
             self.tableView.setEmptyMessage("No results")
         } else {
@@ -111,7 +105,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         
         if let icon = foodEntry.image?.thumb {
             let image = URL(string: icon)!
-            self.showSpinner()
+    
             NetworkController.instance.fetchImage(with: image) { image in
                 guard let image = image else { return }
                 DispatchQueue.main.async {
