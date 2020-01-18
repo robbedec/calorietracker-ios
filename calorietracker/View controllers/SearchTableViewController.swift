@@ -25,6 +25,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     override func viewWillDisappear(_ animated: Bool) {
         AppUtility.lockOrientation(.all)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
     func setupNavBar() {
