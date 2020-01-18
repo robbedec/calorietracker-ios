@@ -54,7 +54,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             guard !searchText.isEmpty else {
                 self.timer.invalidate()
                 self.items.removeAll()
-                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.tableView.reloadData()
                 return
             }
