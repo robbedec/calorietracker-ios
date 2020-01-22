@@ -25,6 +25,8 @@ class LogTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         entries = RealmController.instance.entries
         tableView.reloadData()
     }
